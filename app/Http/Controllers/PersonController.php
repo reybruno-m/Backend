@@ -12,6 +12,7 @@ class PersonController extends Controller
     private $api;
 
     public function __construct(){
+        $this->middleware('auth:api');
         $this->api = env("API_STARWARS", "");
     }
 

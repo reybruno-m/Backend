@@ -10,3 +10,20 @@
 #### **Práctico:** Backend PHP
 
 > Repositorio creado con fines practicos.
+
+````bash
+git clone https://github.com/reybruno-m/Backend
+cd Backend/
+composer install
+# configure .env
+php artisan migrate
+php artisan db:seed
+php artisan serve
+````
+**Usuario para pruebas:**
+- **User:** user@gmail.com
+- **Password:** 12345
+
+**Rutas:**
+
+
