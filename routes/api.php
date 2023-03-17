@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PersonController;
+use App\Http\Controllers\PlanetController;
+use App\Http\Controllers\VehicleController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('people', [PersonController::class, 'get']);
+Route::get('people/{id}', [PersonController::class, 'getById'])->where('id', '[0-9]+');
+
+Route::get('planets', [PlanetController::class, 'get']);
+Route::get('planets/{id}', [PlanetController::class, 'getById'])->where('id', '[0-9]+');
+
+Route::get('vehicles', [VehicleController::class, 'get']);
+Route::get('vehicles/{id}', [VehicleController::class, 'getById'])->where('id', '[0-9]+');
