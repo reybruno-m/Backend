@@ -24,6 +24,5 @@ php artisan serve
 - **User:** user@gmail.com
 - **Password:** 12345
 
-**Rutas:**
-
-
+**Rutas:** 
+- [Postman Collection](https://github.com/reybruno-m/Backend/blob/main/doc/Backend.postman_collection.json)
