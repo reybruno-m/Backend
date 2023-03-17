@@ -17,10 +17,10 @@ class VehicleController extends Controller
     }
 
     # Obtiene una colección de registros.
-    public function get(){
+    public function get($page = 1){
         try {
 
-            $response = Http::get($this->api . "/vehicles");
+            $response = Http::get($this->api . "/vehicles?page=" . $page);
 
             if(!$response->successful()) throw new Exception();
 

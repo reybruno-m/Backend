@@ -17,10 +17,9 @@ class PersonController extends Controller
     }
 
     # Obtiene una colección de registros.
-    public function get(){
+    public function get($page = 1){
         try {
-
-            $response = Http::get($this->api . "/people");
+            $response = Http::get($this->api . "/people?page=" . $page);
 
             if(!$response->successful()) throw new Exception("");
 

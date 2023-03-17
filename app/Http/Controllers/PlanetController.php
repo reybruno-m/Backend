@@ -17,10 +17,10 @@ class PlanetController extends Controller
     }
 
     # Obtiene una colección de registros.
-    public function get(){
+    public function get($page = 1){
         try {
 
-            $response = Http::get($this->api . "/planets");
+            $response = Http::get($this->api . "/planets?page=" . $page);
 
             if(!$response->successful()) throw new Exception();
 

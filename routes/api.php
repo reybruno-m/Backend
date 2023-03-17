@@ -35,14 +35,14 @@ Route::group([
 Route::group(['middleware' => 'api'], function ($router) {
 
     # People.
-    Route::get('people', [PersonController::class, 'get']);
+    Route::get('people/p/{page?}', [PersonController::class, 'get'])->where('page', '[0-9]+');
     Route::get('people/{id}', [PersonController::class, 'getById'])->where('id', '[0-9]+');
 
     # Planets.
-    Route::get('planets', [PlanetController::class, 'get']);
+    Route::get('planets/p/{page?}', [PlanetController::class, 'get'])->where('page', '[0-9]+');
     Route::get('planets/{id}', [PlanetController::class, 'getById'])->where('id', '[0-9]+');
 
     # Vehicles.
-    Route::get('vehicles', [VehicleController::class, 'get']);
+    Route::get('vehicles/p/{page?}', [VehicleController::class, 'get'])->where('page', '[0-9]+');
     Route::get('vehicles/{id}', [VehicleController::class, 'getById'])->where('id', '[0-9]+');
 });

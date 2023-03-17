@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "ba5065dd-3dd4-4546-a263-1bc8d4bbac49",
+		"name": "Backend",
+		"description": "API Creada con fines practicos.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8661566"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@gmail.com\",\r\n    \"password\": 12345\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/auth/login",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Iniciar Sesión"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@gmail.com\",\r\n    \"password\": 12345\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API}}/auth/logout",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						},
+						"description": "Finalizar sesión"
+					},
+					"response": []
+				}
+			],
+			"description": "Autenticación con JWT"
+		},
+		{
+			"name": "People",
+			"item": [
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API}}/people/p/2",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"people",
+								"p",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API}}/people/1",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"people",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Ej. Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/people/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"people",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"response\": {\n        \"name\": \"Luke Skywalker\",\n        \"height\": \"172\",\n        \"mass\": \"77\",\n        \"hair_color\": \"blond\",\n        \"skin_color\": \"fair\",\n        \"eye_color\": \"blue\",\n        \"birth_year\": \"19BBY\",\n        \"gender\": \"male\",\n        \"homeworld\": \"https://swapi.dev/api/planets/1/\",\n        \"films\": [\n            \"https://swapi.dev/api/films/1/\",\n            \"https://swapi.dev/api/films/2/\",\n            \"https://swapi.dev/api/films/3/\",\n            \"https://swapi.dev/api/films/6/\"\n        ],\n        \"species\": [],\n        \"vehicles\": [\n            \"https://swapi.dev/api/vehicles/14/\",\n            \"https://swapi.dev/api/vehicles/30/\"\n        ],\n        \"starships\": [\n            \"https://swapi.dev/api/starships/12/\",\n            \"https://swapi.dev/api/starships/22/\"\n        ],\n        \"created\": \"2014-12-09T13:50:51.644000Z\",\n        \"edited\": \"2014-12-20T21:17:56.891000Z\",\n        \"url\": \"https://swapi.dev/api/people/1/\"\n    }\n}"
+						},
+						{
+							"name": "Ej. Fail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/people/1000",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"people",
+										"1000"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"response\": \"La solicitud no pudo ser procesada. \"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Planets",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API}}/planets/p/2",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"planets",
+								"p",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API}}/planets/1",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"planets",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Ej. Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/planets/1",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"planets",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"response\": {\n        \"name\": \"Tatooine\",\n        \"rotation_period\": \"23\",\n        \"orbital_period\": \"304\",\n        \"diameter\": \"10465\",\n        \"climate\": \"arid\",\n        \"gravity\": \"1 standard\",\n        \"terrain\": \"desert\",\n        \"surface_water\": \"1\",\n        \"population\": \"200000\",\n        \"residents\": [\n            \"https://swapi.dev/api/people/1/\",\n            \"https://swapi.dev/api/people/2/\",\n            \"https://swapi.dev/api/people/4/\",\n            \"https://swapi.dev/api/people/6/\",\n            \"https://swapi.dev/api/people/7/\",\n            \"https://swapi.dev/api/people/8/\",\n            \"https://swapi.dev/api/people/9/\",\n            \"https://swapi.dev/api/people/11/\",\n            \"https://swapi.dev/api/people/43/\",\n            \"https://swapi.dev/api/people/62/\"\n        ],\n        \"films\": [\n            \"https://swapi.dev/api/films/1/\",\n            \"https://swapi.dev/api/films/3/\",\n            \"https://swapi.dev/api/films/4/\",\n            \"https://swapi.dev/api/films/5/\",\n            \"https://swapi.dev/api/films/6/\"\n        ],\n        \"created\": \"2014-12-09T13:50:49.641000Z\",\n        \"edited\": \"2014-12-20T20:58:18.411000Z\",\n        \"url\": \"https://swapi.dev/api/planets/1/\"\n    }\n}"
+						},
+						{
+							"name": "Ej. Fail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/planets/1000",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"planets",
+										"1000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"response\": \"La solicitud no pudo ser procesada. \"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Vehicles",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API}}/vehicles/p/2",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"vehicles",
+								"p",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API}}/vehicles/4",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"vehicles",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Ej. Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/vehicles/1",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"vehicles",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"response\": {\n        \"name\": \"Sand Crawler\",\n        \"model\": \"Digger Crawler\",\n        \"manufacturer\": \"Corellia Mining Corporation\",\n        \"cost_in_credits\": \"150000\",\n        \"length\": \"36.8 \",\n        \"max_atmosphering_speed\": \"30\",\n        \"crew\": \"46\",\n        \"passengers\": \"30\",\n        \"cargo_capacity\": \"50000\",\n        \"consumables\": \"2 months\",\n        \"vehicle_class\": \"wheeled\",\n        \"pilots\": [],\n        \"films\": [\n            \"https://swapi.dev/api/films/1/\",\n            \"https://swapi.dev/api/films/5/\"\n        ],\n        \"created\": \"2014-12-10T15:36:25.724000Z\",\n        \"edited\": \"2014-12-20T21:30:21.661000Z\",\n        \"url\": \"https://swapi.dev/api/vehicles/4/\"\n    }\n}"
+						},
+						{
+							"name": "Ej. Fail",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/vehicles/1",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"vehicles",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"response\": \"La solicitud no pudo ser procesada. \"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API",
+			"value": "http://127.0.0.1:8000/api",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
